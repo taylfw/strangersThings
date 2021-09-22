@@ -1,0 +1,17 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem 0;
+  width: 30%;
+  background: rgb(136, 135, 135);
+}
+
+.card {
+  display: flex;
+  border: 5px solid black;
+  margin: 8px;
+  background: cadetblue;
+}
