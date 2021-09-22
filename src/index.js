@@ -18,29 +18,28 @@ const App = () => {
 
   const fetchAllPosts = async () => {
     try {
-      const response = await axios.get(
+      const { data } = await axios.get(
         "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT/posts"
       );
+      console.log(data.data.posts);
+      return data.data.posts;
 
-      console.log(response);
+      console.log(data.data.posts);
     } catch (err) {
       console.error(err);
     }
   };
 
-  useEffect(() => {
-    fetchAllPosts();
+  useEffect(async () => {
+    const posts = await fetchAllPosts();
+    setAllPosts(posts);
   }, []);
 
   return (
     <Router>
       <div id="App">
         <Header />
-        <Posts
-          allPosts={allPosts}
-          setAllPosts={setAllPosts}
-          getPosts={getPosts}
-        />
+        <Posts allPosts={allPosts} />
       </div>
     </Router>
   );

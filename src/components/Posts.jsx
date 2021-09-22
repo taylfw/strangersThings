@@ -1,9 +1,17 @@
 import { getPosts } from "../api";
 
-const Posts = () => {
+const Posts = (props) => {
+  const { allPosts } = props;
+
   return (
     <div>
-      <h1>This is the Posts component.</h1>
+      <div>
+        {allPosts
+          ? allPosts.map((post) => {
+              return <div key={post._id}>title: {post.title}</div>;
+            })
+          : null}
+      </div>
     </div>
   );
 };
