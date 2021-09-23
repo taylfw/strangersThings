@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Posts from "./components/Posts";
+import NavBar from "./components/NavBar";
 
 import {
   BrowserRouter as Router,
@@ -38,7 +39,7 @@ const App = () => {
   return (
     <Router>
       <div id="App">
-        <Header />
+        <NavBar />
         <Posts allPosts={allPosts} />
       </div>
     </Router>
