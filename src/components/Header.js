@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <h1>Welcome to the Header Component</h1>
+      <h1>Header Component</h1>
     </header>
   );
 };
