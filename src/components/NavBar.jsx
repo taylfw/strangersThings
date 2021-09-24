@@ -1,11 +1,20 @@
 import "./NavBar.css";
+import ReactDom from "react-dom";
+import { Route, Switch, Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div className="nav">
-      <div className="postNav">posts</div>
-      <div className="loginNav">login</div>
-      <div className="registerNav">register</div>
+      <Link className="nav-bar-link" to="/posts">
+        POSTS
+      </Link>
+
+      <Link className="nav-bar-link" to="/login">
+        LOGIN
+      </Link>
+      <Link className="nav-bar-link" to="/register">
+        REGISTER
+      </Link>
     </div>
   );
 };

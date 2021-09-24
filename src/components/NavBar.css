@@ -8,31 +8,9 @@
   width: 100%;
 }
 
-.postNav {
+.nav-bar-link {
   color: rgb(252, 0, 0);
   padding: 8px;
-  border-radius: 5%;
-  text-decoration-line: none;
-  background-color: rgb(39, 39, 39);
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.493);
-  margin: 3px;
-}
-
-.loginNav {
-  color: rgb(252, 0, 0);
-  padding: 8px;
-  font-family: "ITC Benguiat W01";
-  border-radius: 5%;
-  text-decoration-line: none;
-  background-color: rgb(39, 39, 39);
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.493);
-  margin: 3px;
-}
-
-.registerNav {
-  color: rgb(252, 0, 0);
-  padding: 8px;
-  font-family: "ITC Benguiat W01";
   border-radius: 5%;
   text-decoration-line: none;
   background-color: rgb(39, 39, 39);
