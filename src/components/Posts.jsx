@@ -1,5 +1,6 @@
 import { getPosts } from "../api";
 import "./Post.css";
+
 const Posts = (props) => {
   const { allPosts } = props;
 
@@ -10,6 +11,7 @@ const Posts = (props) => {
             return (
               <div key={post._id} className="card">
                 title: {post.title} {post.description} {post.price}
+                <img src=''></img>
               </div>
             );
           })
