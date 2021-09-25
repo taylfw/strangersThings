@@ -10,6 +10,7 @@ import {
 import { getPosts } from "./api";
 import { Header, Posts, Login, Register, NavBar } from "./components";
 import axios from "axios";
+import { getToken } from "./auth";
 
 const App = () => {
   //I was meaning to change these variables for less confusion (also reflected on line 23 through 25 👇️ )
@@ -17,6 +18,8 @@ const App = () => {
 
   const fetchAllPosts = async () => {
     try {
+      const myToken = getToken();
+
       const { data } = await axios.get(
         "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT/posts"
       );
