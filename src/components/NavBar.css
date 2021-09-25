@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}
+
+.nav-bar-link {
+  color: rgb(252, 0, 0);
+  padding: 8px;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(39, 39, 39);
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.493);
+  margin: 3px;
+}
