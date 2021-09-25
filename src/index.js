@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import Posts from "./components/Posts";
 
 import {
   BrowserRouter as Router,
@@ -9,7 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { getPosts } from "./api";
-import { Header } from "./components";
+import { Header, Posts, Login, Register, NavBar } from "./components";
 import axios from "axios";
 
 const App = () => {
@@ -36,12 +35,22 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div id="App">
-        <Header />
-        <Posts allPosts={allPosts} />
-      </div>
-    </Router>
+    <div id="App">
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/posts">
+            <Posts allPosts={allPosts} />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 };
 
