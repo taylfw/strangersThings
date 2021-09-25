@@ -16,8 +16,10 @@ export async function getPosts() {
 export async function registerUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/register`, {
-      username: username,
-      password: password,
+      user: {
+        username: username,
+        password: password,
+      },
     });
     return data;
   } catch (error) {
