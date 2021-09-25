@@ -1,5 +1,5 @@
 import { getPosts } from "../api";
-import "./Post.css";
+import "./Posts.css";
 
 const Posts = (props) => {
   const { allPosts } = props;

@@ -1,24 +1,18 @@
 body {
-  display: grid;
-  grid-template-columns: 150fr 1fr 1fr;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   padding: 1rem 0;
-  width: 100%;
-  background: rgb(136, 135, 135);
+  background: rgb(0, 0, 0);
 }
 
 .card {
   display: flex;
-  justify-content: center;
-  color: rgb(252, 0, 0);
-  font-family: "ITC Benguiat W01";
-  border: 5px solid black;
+  border-radius: 25px;
+  border: 5px solid rgb(216, 17, 17);
+  padding: 40px;
   margin: 8px;
-  margin-right: 0px;
-  width: 30%;
-  background-color: rgb(39, 39, 39);
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.493);
+  background: cadetblue;
+  box-shadow: 10px 5px 10px 10px rgb(102, 6, 6);
 }
