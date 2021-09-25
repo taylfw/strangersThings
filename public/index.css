@@ -1,0 +1,10 @@
+.titleStyles {
+  margin: 0 auto 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 5.9rem;
+  text-align: center;
+  color: brown;
+  max-width: 600px;
+  text-decoration: underline;
+  text-shadow: 10px 5px 5px black;
+}
