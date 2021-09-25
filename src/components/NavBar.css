@@ -3,9 +3,8 @@
   background-color: rgba(0, 0, 0, 0);
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   padding-bottom: 8px;
-  width: 100%;
 }
 
 .nav-bar-link {
