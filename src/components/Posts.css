@@ -1,5 +1,6 @@
 body {
-  display: flex;
+  display: grid;
+  grid-template-columns: 150fr 1fr 1fr;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -12,8 +13,12 @@ body {
 .card {
   display: flex;
   justify-content: center;
+  color: rgb(252, 0, 0);
+  font-family: "ITC Benguiat W01";
   border: 5px solid black;
   margin: 8px;
+  margin-right: 0px;
   width: 30%;
-  background: cadetblue;
+  background-color: rgb(39, 39, 39);
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.493);
 }
