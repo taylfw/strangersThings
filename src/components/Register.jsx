@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { registerUser } from "../api";
+import { storeToken } from "../auth";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -11,8 +12,13 @@ const Register = () => {
         onSubmit={async (event) => {
           event.preventDefault();
           try {
-            const results = await registerUser(userName, password);
-            console.log(results);
+            const { data } = await registerUser(userName, password);
+            console.log(data.token);
+            storeToken(data.token);
+
+            //clear register fields
+            setUserName("");
+            setPassword("");
           } catch (err) {
             console.error(err);
           }

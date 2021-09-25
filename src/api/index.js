@@ -30,8 +30,10 @@ export async function registerUser(username, password) {
 export async function loginUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/login`, {
-      username: username,
-      password: password,
+      user: {
+        username: username,
+        password: password,
+      },
     });
     return data;
   } catch (error) {
