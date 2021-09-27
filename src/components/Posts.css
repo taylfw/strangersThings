@@ -9,10 +9,12 @@ body {
 
 .card {
   display: flex;
+  color: rgb(216, 17, 17);
+  font-family: "ITC Benguiat W01";
   border-radius: 25px;
   border: 5px solid rgb(216, 17, 17);
   padding: 40px;
   margin: 8px;
-  background: cadetblue;
+  background: rgb(39, 39, 39);
   box-shadow: 10px 5px 10px 10px rgb(102, 6, 6);
 }

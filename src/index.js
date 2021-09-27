@@ -23,10 +23,8 @@ const App = () => {
       const { data } = await axios.get(
         "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT/posts"
       );
-      console.log(data.data.posts);
-      return data.data.posts;
 
-      console.log(data.data.posts);
+      return data.data.posts;
     } catch (err) {
       console.error(err);
     }
