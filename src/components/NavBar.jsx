@@ -15,6 +15,13 @@ const NavBar = () => {
       <Link className="nav-bar-link" to="/register">
         REGISTER
       </Link>
+      <Link
+        className="nav-bar-link"
+        to="/"
+        onClick={() => localStorage.clear()}
+      >
+        LOGOUT
+      </Link>
     </div>
   );
 };
