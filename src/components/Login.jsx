@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { loginUser } from "../api";
-import { storeToken } from "../auth";
+import { storeToken, storeUser } from "../auth";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -13,9 +13,9 @@ const Login = () => {
           event.preventDefault();
           try {
             const { data } = await loginUser(userName, password);
-            console.log(data.token);
-            storeToken(data.token);
 
+            storeToken(data.token);
+            storeUser(userName);
             //clear Login fields
             setUserName("");
             setPassword("");
