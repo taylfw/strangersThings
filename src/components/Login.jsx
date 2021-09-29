@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginUser } from "../api";
 import { storeToken } from "../auth";
+import "./Login.css";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -48,7 +49,7 @@ const Login = () => {
             }}
           />
         </fieldset>
-        <button>Login</button>
+        <button class ="btn">Login</button>
       </form>
     </div>
   );
