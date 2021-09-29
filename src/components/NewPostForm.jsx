@@ -20,7 +20,7 @@ const NewPostForm = (props) => {
           try {
             const token = getToken();
             const user = getUser();
-            const createdPost = createPost(
+            const createdPost = await createPost(
               title,
               description,
               price,
