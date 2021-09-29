@@ -40,3 +40,27 @@ export async function loginUser(username, password) {
     throw error;
   }
 }
+
+export async function createPost(title, description, price, user, token) {
+  try {
+    const { data } = await axios.post(
+      `${BASE}/posts`,
+      {
+        post: {
+          title: title,
+          description: description,
+          price: price,
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}

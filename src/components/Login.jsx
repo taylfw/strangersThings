@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginUser } from "../api";
-import { storeToken } from "../auth";
+import { storeToken, storeUser } from "../auth";
+
 import "./Login.css";
 
 const Login = () => {
@@ -14,9 +15,9 @@ const Login = () => {
           event.preventDefault();
           try {
             const { data } = await loginUser(userName, password);
-            console.log(data.token);
-            storeToken(data.token);
 
+            storeToken(data.token);
+            storeUser(userName);
             //clear Login fields
             setUserName("");
             setPassword("");
@@ -49,7 +50,7 @@ const Login = () => {
             }}
           />
         </fieldset>
-        <button class ="btn">Login</button>
+        <button class="btn">Login</button>
       </form>
     </div>
   );

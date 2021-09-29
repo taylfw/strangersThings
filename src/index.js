@@ -8,7 +8,14 @@ import {
   Redirect,
 } from "react-router-dom";
 import { getPosts } from "./api";
-import { Header, Posts, Login, Register, NavBar } from "./components";
+import {
+  Header,
+  Posts,
+  Login,
+  Register,
+  NavBar,
+  NewPostForm,
+} from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
 
@@ -48,6 +55,7 @@ const App = () => {
           </Route>
           <Route path="/posts">
             <Posts allPosts={allPosts} />
+            <NewPostForm />
           </Route>
         </Switch>
       </Router>
