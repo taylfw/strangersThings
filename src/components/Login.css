@@ -1,0 +1,69 @@
+/* This control the main background image  */
+body {
+  background-image: url("https://res.cloudinary.com/teepublic/image/private/s--qXRngDhd--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1475106410/production/designs/705681_1.jpg");
+}
+
+/* This is the font User Name, Password */
+label {
+  padding-bottom: 8px;
+  font-family: "Times New Roman", Times, serif;
+  text-shadow: brown;
+  font-size: 20px;
+  background: rgb(3, 1, 1);
+  color: brown;
+  padding-right: 8%;
+}
+
+/* This id controls the boxes and the titleImage inside box */
+#root {
+  align-items: center;
+  padding: 8%;
+  margin: 10%;
+  background-image: url("./images/text-1632756381081.png");
+  background-size: 100%;
+  justify-content: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+/* This class is the User Name, Password border box */
+.auth-component-input {
+  background-position: 50%, 50%;
+  text-align: center;
+  border-radius: 20px;
+  border-width: 5px;
+  border: 2px solid rgb(216, 17, 17);
+  padding: 14px;
+  text-align: center;
+  margin: 12px;
+  background: rgb(3, 0, 0);
+  box-shadow: 0 1px 8px 3px rgba(255, 0, 0, 0.589);
+}
+
+button {
+  color: rgb(252, 0, 0);
+  padding: 8px;
+  border-radius: 25%;
+  text-decoration-line: none;
+  background-color: rgb(12, 5, 5);
+  box-shadow: 0 1px 8px 8px rgba(255, 0, 0, 0.589);
+  margin: 3px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  width: 90px;
+}
+
+/* Before button been click */
+.btn:hover {
+  background-color: rgb(255, 0, 0);
+  color: black;
+  border: 3px solid rgb(255, 0, 0);
+}
+
+/* Once button has been click */
+.btn:active {
+  color: rgb(252, 0, 0);
+  background-color: #060706;
+  box-shadow: 0 1px 8px 8px rgba(255, 0, 0, 0.589);
+  transform: translateY(4px);
+}

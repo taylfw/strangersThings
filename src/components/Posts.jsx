@@ -5,13 +5,12 @@ const Posts = (props) => {
   const { allPosts } = props;
 
   return (
-    <div>
+    <div >
       {allPosts
         ? allPosts.map((post) => {
             return (
-              <div key={post._id} className="card">
-                title: {post.title} {post.description} {post.price}
-                <img src=''></img>
+              <div key={post._id} className="card"> 
+                title: {post.title} {post.description} {post.price} 
               </div>
             );
           })
