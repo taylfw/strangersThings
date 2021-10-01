@@ -1,20 +1,42 @@
-/* body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 0;
-  background: rgb(0, 0, 0);
-} */
-
 .card {
   display: flex;
   color: rgb(216, 17, 17);
   font-family: "ITC Benguiat W01";
   border-radius: 25px;
-  border: 5px solid rgb(216, 17, 17);
-  padding: 40px;
+  border: 2px solid rgb(216, 17, 17);
+  padding: 4px;
   margin: 8px;
-  background: rgb(39, 39, 39);
-  box-shadow: 10px 5px 10px 10px rgb(102, 6, 6);
+  background: rgb(5, 1, 1);
+  box-shadow: 0 1px 8px 8px rgba(255, 0, 0, 0.589);
+}
+
+button {
+  color: rgb(252, 0, 0);
+  padding: 8px;
+  border-radius: 25%;
+  text-decoration-line: none;
+  background-color: rgb(12, 5, 5);
+  box-shadow: 0 1px 8px 8px rgba(255, 0, 0, 0.589);
+  margin: 3px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  width: 90px;
+}
+
+/* Before button been click */
+.btn:hover {
+  background-color: rgb(255, 0, 0);
+  color: black;
+  border: 3px solid rgb(255, 0, 0);
+}
+
+/* Once button has been click */
+.btn:active {
+  color: rgb(252, 0, 0);
+  background-color: #060706;
+  box-shadow: 0 1px 8px 8px rgba(255, 0, 0, 0.589);
+  transform: translateY(4px);
+}
+
+#App {
 }
