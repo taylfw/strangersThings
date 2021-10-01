@@ -50,7 +50,7 @@ const Login = () => {
             }}
           />
         </fieldset>
-        <button class="btn">Login</button>
+        <button >Login</button>
       </form>
     </div>
   );

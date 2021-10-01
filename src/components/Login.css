@@ -54,14 +54,14 @@ button {
 }
 
 /* Before button been click */
-.btn:hover {
+.button:hover {
   background-color: rgb(255, 0, 0);
   color: black;
   border: 3px solid rgb(255, 0, 0);
 }
 
 /* Once button has been click */
-.btn:active {
+button:active {
   color: rgb(252, 0, 0);
   background-color: #060706;
   box-shadow: 0 1px 8px 8px rgba(255, 0, 0, 0.589);
