@@ -15,6 +15,7 @@ import {
   Register,
   NavBar,
   NewPostForm,
+  SinglePostPage,
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
@@ -58,6 +59,11 @@ const App = () => {
           <Route path="/login">
             <Login setIsloggedIn={setIsloggedIn} />
           </Route>
+
+          <Route path="/posts/:postId">
+            <SinglePostPage allPosts={allPosts} />
+          </Route>
+
           <Route path="/posts">
             <Posts allPosts={allPosts} />
             <NewPostForm />

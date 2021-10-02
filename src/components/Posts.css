@@ -38,5 +38,6 @@ button {
   transform: translateY(4px);
 }
 
-#App {
+.error-message {
+  color: rgb(255, 136, 0);
 }
