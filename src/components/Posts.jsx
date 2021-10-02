@@ -3,14 +3,19 @@ import { SinglePost } from ".";
 import "./Posts.css";
 import { Link } from "react-router-dom";
 
-const Posts = (props) => {
-  const { allPosts } = props;
-
+const Posts = ({ allPosts, filterPosts }) => {
   return (
     <div>
-      {allPosts.length
+      {filterPosts && filterPosts.length
+        ? filterPosts.map((post) => {
+            return (
+              <Link to={`/posts/${post._id}`} key={post._id}>
+                <SinglePost post={post} />;
+              </Link>
+            );
+          })
+        : allPosts && allPosts.length
         ? allPosts.map((post) => {
-            console.log(post);
             return (
               <Link to={`/posts/${post._id}`} key={post._id}>
                 <SinglePost post={post} />;
