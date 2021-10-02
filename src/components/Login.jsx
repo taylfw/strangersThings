@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginUser } from "../api";
+import { getCurrentUser, loginUser } from "../api";
 import { storeToken, storeUser } from "../auth";
 
 import "./Login.css";
@@ -22,6 +22,7 @@ const Login = ({ setIsloggedIn }) => {
             //clear Login fields
             setUserName("");
             setPassword("");
+            console.log(await getCurrentUser());
           } catch (err) {
             console.error(err);
           }
@@ -53,8 +54,6 @@ const Login = ({ setIsloggedIn }) => {
         </fieldset>
 
         <button className="btn">Login</button>
-
-
       </form>
     </div>
   );

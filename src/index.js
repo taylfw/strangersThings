@@ -7,7 +7,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import { getPosts } from "./api";
+import { getPosts, getCurrentUser } from "./api";
 import {
   Header,
   Posts,
@@ -17,6 +17,7 @@ import {
   NewPostForm,
   SinglePostPage,
   SearchBar,
+  ProfilePage,
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
@@ -27,10 +28,16 @@ const App = () => {
   const [isLoggedIn, setIsloggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPosts, setFilterPosts] = useState([]);
+  const [currentUser, SetCurrentUser] = useState([]);
 
   useEffect(async () => {
     const data = await getPosts();
     setAllPosts(data.data.posts);
+  }, []);
+
+  useEffect(async () => {
+    const data = await getCurrentUser();
+    SetCurrentUser(data.data.username);
   }, []);
 
   useEffect(async () => {
@@ -59,7 +66,13 @@ const App = () => {
           <Route path="/login">
             <Login setIsloggedIn={setIsloggedIn} />
           </Route>
-
+          <Route path="/profile">
+            <ProfilePage
+              setIsloggedIn={setIsloggedIn}
+              SetCurrentUser={SetCurrentUser}
+              currentUser={currentUser}
+            />
+          </Route>
           <Route path="/posts/:postId">
             <SinglePostPage allPosts={allPosts} />
           </Route>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { getCurrentUser } from "../api";
 
-const ProfilePage = () => {
+const ProfilePage = ({ SetCurrentUser, currentUser }) => {
   return (
     <div>
-      <h1>Profile Page!!!!!</h1>
+      <h1>{currentUser}'s</h1>
     </div>
   );
 };
