@@ -10,7 +10,8 @@ const NewPostForm = (props) => {
   const [price, setPrice] = useState("");
 
   return (
-    <div className="new-post-component-main-container">
+    <div 
+    className="new-post-component-main-container">
       <h1 className="hello">Welcome to making a post.</h1>
       <form
         id="newPostSubmit"
@@ -72,6 +73,7 @@ const NewPostForm = (props) => {
         </fieldset>
         <button type="submit">Submit</button>
       </form>
+       <button><a href="#">Back to top</a></button>
     </div>
   );
 };

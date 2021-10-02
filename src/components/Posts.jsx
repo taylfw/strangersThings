@@ -10,7 +10,7 @@ const Posts = (props) => {
         ? allPosts.map((post) => {
             return (
               <div key={post._id} className="card"> 
-                title: {post.title} {post.description} {post.price} 
+                Title: "{post.title}" : {post.description}. $ {post.price} 
               </div>
             );
           })
