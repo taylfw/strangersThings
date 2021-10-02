@@ -15,7 +15,7 @@ label {
 }
 
 /* This id controls the boxes and the titleImage inside box */
-#root {
+#title {
   align-items: center;
   padding: 8%;
   margin: 10%;

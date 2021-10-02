@@ -15,6 +15,7 @@ import {
   Register,
   NavBar,
   NewPostForm,
+  Title
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
@@ -43,9 +44,11 @@ const App = () => {
   }, []);
 
   return (
+    
     <div id="App">
       <Router>
         <NavBar />
+        <Title />
         <Switch>
           <Route path="/register">
             <Register />

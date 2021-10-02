@@ -1,18 +1,18 @@
 .nav {
-  display: flex;
   background-color: rgba(0, 0, 0, 0);
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-end;
-  padding-bottom: 8px;
+  justify-content: center;
+  position: sticky;
 }
 
 .nav-bar-link {
+  font-family: "Times New Roman", Times, serif;
   color: rgb(252, 0, 0);
   padding: 8px;
-  border-radius: 5%;
+  border-radius: 25%;
   text-decoration-line: none;
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(10, 10, 10);
   box-shadow: 0 2px 8px rgba(255, 0, 0, 0.493);
   margin: 3px;
+  transform: translateY(4px);
 }

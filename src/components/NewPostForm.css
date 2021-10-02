@@ -1,7 +1,8 @@
 .hello {
   color: rgb(252, 0, 0);
-  text-shadow: black;
+  text-shadow: 2px 2px black;
   font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
 }
 .auth-component-input {
   color: rgb(252, 0, 0);

@@ -33,8 +33,8 @@ const NewPostForm = (props) => {
             console.log(err);
           }
         }}
-      >
-        <h2 className="hello">Create Post here.</h2>
+      >       
+        <h2 className="hello">Create Post Below.</h2>
         <fieldset className="auth-component-input">
           <label htmlFor="title">Title:</label>
           <input
