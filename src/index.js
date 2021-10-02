@@ -16,6 +16,7 @@ import {
   NavBar,
   NewPostForm,
   SinglePostPage,
+  SearchBar,
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
@@ -24,7 +25,8 @@ const App = () => {
   //I was meaning to change these variables for less confusion (also reflected on line 23 through 25 👇️ )
   const [allPosts, setAllPosts] = useState([]);
   const [isLoggedIn, setIsloggedIn] = useState(false);
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterPosts, setFilterPosts] = useState([]);
   const fetchAllPosts = async () => {
     try {
       const myToken = getToken();
@@ -48,6 +50,21 @@ const App = () => {
     setAllPosts(posts);
   }, []);
 
+  useEffect(async () => {
+    const myFilteredPosts = await allPosts.filter((event) => {
+      if (event.title.includes(searchTerm)) {
+        return true;
+      }
+
+      if (event.description.includes(searchTerm)) {
+        return true;
+      }
+
+      return false;
+    });
+    setFilterPosts(myFilteredPosts);
+  }, [searchTerm]);
+
   return (
     <div id="App">
       <Router>
@@ -63,10 +80,17 @@ const App = () => {
           <Route path="/posts/:postId">
             <SinglePostPage allPosts={allPosts} />
           </Route>
-
           <Route path="/posts">
-            <Posts allPosts={allPosts} />
-            <NewPostForm />
+            <div>
+              <SearchBar
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+              />
+              <div>
+                <Posts allPosts={allPosts} filterPosts={filterPosts} />
+                <NewPostForm />
+              </div>
+            </div>
           </Route>
         </Switch>
       </Router>
