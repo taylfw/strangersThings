@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getToken } from "../auth";
 
 const BASE = "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT";
 
@@ -33,6 +34,21 @@ export async function loginUser(username, password) {
       user: {
         username: username,
         password: password,
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getCurrentUser() {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.get(`${BASE}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${myToken}`,
       },
     });
     return data;
