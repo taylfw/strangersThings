@@ -31,13 +31,15 @@ button {
 }
 
 /* Once button has been click */
-.btn:active {
+.button:active {
   color: rgb(252, 0, 0);
   background-color: #060706;
   box-shadow: 0 1px 8px 8px rgba(255, 0, 0, 0.589);
   transform: translateY(4px);
 }
 
+
 .error-message {
   color: rgb(255, 136, 0);
 }
+

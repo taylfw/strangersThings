@@ -15,6 +15,7 @@ import {
   Register,
   NavBar,
   NewPostForm,
+  Title,
   SinglePostPage,
   SearchBar,
   ProfilePage,
@@ -59,6 +60,8 @@ const App = () => {
     <div id="App">
       <Router>
         <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
+        <Title />
+
         <Switch>
           <Route path="/register">
             <Register setIsloggedIn={setIsloggedIn} />
