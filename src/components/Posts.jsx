@@ -1,17 +1,20 @@
 import { getPosts } from "../api";
+import { SinglePost } from ".";
 import "./Posts.css";
+import { Link } from "react-router-dom";
 
 const Posts = (props) => {
   const { allPosts } = props;
 
   return (
-    <div >
-      {allPosts
+    <div>
+      {allPosts.length
         ? allPosts.map((post) => {
+            console.log(post);
             return (
-              <div key={post._id} className="card"> 
-                Title: "{post.title}" : {post.description}. $ {post.price} 
-              </div>
+              <Link to={`/posts/${post._id}`} key={post._id}>
+                <SinglePost post={post} />;
+              </Link>
             );
           })
         : null}
