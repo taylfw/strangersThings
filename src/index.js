@@ -22,10 +22,15 @@ import { getToken } from "./auth";
 const App = () => {
   //I was meaning to change these variables for less confusion (also reflected on line 23 through 25 👇️ )
   const [allPosts, setAllPosts] = useState([]);
+  const [isLoggedIn, setIsloggedIn] = useState(false);
 
   const fetchAllPosts = async () => {
     try {
       const myToken = getToken();
+
+      if (myToken) {
+        setIsloggedIn(true);
+      }
 
       const { data } = await axios.get(
         "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT/posts"
@@ -45,13 +50,13 @@ const App = () => {
   return (
     <div id="App">
       <Router>
-        <NavBar />
+        <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
         <Switch>
           <Route path="/register">
-            <Register />
+            <Register setIsloggedIn={setIsloggedIn} />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login setIsloggedIn={setIsloggedIn} />
           </Route>
           <Route path="/posts">
             <Posts allPosts={allPosts} />

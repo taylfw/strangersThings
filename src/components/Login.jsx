@@ -4,7 +4,7 @@ import { storeToken, storeUser } from "../auth";
 
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ setIsloggedIn }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -18,6 +18,7 @@ const Login = () => {
 
             storeToken(data.token);
             storeUser(userName);
+            setIsloggedIn(true);
             //clear Login fields
             setUserName("");
             setPassword("");
@@ -50,7 +51,7 @@ const Login = () => {
             }}
           />
         </fieldset>
-        <button class="btn">Login</button>
+        <button className="btn">Login</button>
       </form>
     </div>
   );
