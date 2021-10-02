@@ -15,8 +15,12 @@ import {
   Register,
   NavBar,
   NewPostForm,
+
+  Title
+
   SinglePostPage,
   SearchBar,
+
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
@@ -49,9 +53,15 @@ const App = () => {
   }, [searchTerm]);
 
   return (
+    
     <div id="App">
       <Router>
+
+        <NavBar />
+        <Title />
+
         <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
+
         <Switch>
           <Route path="/register">
             <Register setIsloggedIn={setIsloggedIn} />
