@@ -27,27 +27,10 @@ const App = () => {
   const [isLoggedIn, setIsloggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPosts, setFilterPosts] = useState([]);
-  const fetchAllPosts = async () => {
-    try {
-      const myToken = getToken();
-
-      if (myToken) {
-        setIsloggedIn(true);
-      }
-
-      const { data } = await axios.get(
-        "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT/posts"
-      );
-
-      return data.data.posts;
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   useEffect(async () => {
-    const posts = await fetchAllPosts();
-    setAllPosts(posts);
+    const data = await getPosts();
+    setAllPosts(data.data.posts);
   }, []);
 
   useEffect(async () => {
