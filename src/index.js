@@ -15,7 +15,12 @@ import {
   Register,
   NavBar,
   NewPostForm,
+
   Title
+
+  SinglePostPage,
+  SearchBar,
+
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
@@ -23,42 +28,62 @@ import { getToken } from "./auth";
 const App = () => {
   //I was meaning to change these variables for less confusion (also reflected on line 23 through 25 👇️ )
   const [allPosts, setAllPosts] = useState([]);
-
-  const fetchAllPosts = async () => {
-    try {
-      const myToken = getToken();
-
-      const { data } = await axios.get(
-        "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT/posts"
-      );
-
-      return data.data.posts;
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const [isLoggedIn, setIsloggedIn] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterPosts, setFilterPosts] = useState([]);
 
   useEffect(async () => {
-    const posts = await fetchAllPosts();
-    setAllPosts(posts);
+    const data = await getPosts();
+    setAllPosts(data.data.posts);
   }, []);
+
+  useEffect(async () => {
+    const myFilteredPosts = await allPosts.filter((event) => {
+      if (event.title.includes(searchTerm)) {
+        return true;
+      }
+
+      if (event.description.includes(searchTerm)) {
+        return true;
+      }
+
+      return false;
+    });
+    setFilterPosts(myFilteredPosts);
+  }, [searchTerm]);
 
   return (
     
     <div id="App">
       <Router>
+
         <NavBar />
         <Title />
+
+        <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
+
         <Switch>
           <Route path="/register">
-            <Register />
+            <Register setIsloggedIn={setIsloggedIn} />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login setIsloggedIn={setIsloggedIn} />
+          </Route>
+
+          <Route path="/posts/:postId">
+            <SinglePostPage allPosts={allPosts} />
           </Route>
           <Route path="/posts">
-            <Posts allPosts={allPosts} />
-            <NewPostForm />
+            <div>
+              <SearchBar
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+              />
+              <div>
+                <Posts allPosts={allPosts} filterPosts={filterPosts} />
+                <NewPostForm />
+              </div>
+            </div>
           </Route>
         </Switch>
       </Router>

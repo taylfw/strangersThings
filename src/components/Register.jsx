@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { registerUser } from "../api";
 import { storeToken, storeUser } from "../auth";
 
-const Register = () => {
+const Register = ({ setIsloggedIn }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -16,6 +16,7 @@ const Register = () => {
             console.log(data.token);
             storeToken(data.token);
             storeUser(userName);
+            setIsloggedIn(true);
             //clear register fields
             setUserName("");
             setPassword("");
