@@ -29,16 +29,20 @@ const App = () => {
   const [isLoggedIn, setIsloggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPosts, setFilterPosts] = useState([]);
-  const [currentUser, SetCurrentUser] = useState([]);
+  const [currentUser, SetCurrentUser] = useState({});
 
   useEffect(async () => {
+    const myToken = getToken();
     const data = await getPosts();
+    if (myToken) {
+      setIsloggedIn(true);
+    }
     setAllPosts(data.data.posts);
   }, []);
 
   useEffect(async () => {
     const data = await getCurrentUser();
-    SetCurrentUser(data.data.username);
+    SetCurrentUser(data.data);
   }, []);
 
   useEffect(async () => {
@@ -60,25 +64,31 @@ const App = () => {
     <div id="App">
       <Router>
         <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
+
         <Title />
 
         <Switch>
           <Route path="/register">
             <Register setIsloggedIn={setIsloggedIn} />
           </Route>
+
           <Route path="/login">
             <Login setIsloggedIn={setIsloggedIn} />
           </Route>
+
           <Route path="/profile">
             <ProfilePage
-              setIsloggedIn={setIsloggedIn}
               SetCurrentUser={SetCurrentUser}
               currentUser={currentUser}
+              allPosts={allPosts}
+              filterPosts={filterPosts}
             />
           </Route>
+
           <Route path="/posts/:postId">
             <SinglePostPage allPosts={allPosts} />
           </Route>
+
           <Route path="/posts">
             <div>
               <SearchBar
@@ -86,7 +96,12 @@ const App = () => {
                 setSearchTerm={setSearchTerm}
               />
               <div>
-                <Posts allPosts={allPosts} filterPosts={filterPosts} />
+                <Posts
+                  allPosts={allPosts}
+                  filterPosts={filterPosts}
+                  currentUser={currentUser}
+                />
+
                 <NewPostForm />
               </div>
             </div>

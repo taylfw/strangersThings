@@ -8,6 +8,7 @@ const BASE = "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT";
 export async function getPosts() {
   try {
     const { data } = await axios.get(`${BASE}/posts`);
+
     return data;
   } catch (error) {
     throw error;
@@ -78,5 +79,21 @@ export async function createPost(title, description, price, user, token) {
     return data;
   } catch (error) {
     throw error;
+  }
+}
+
+export async function deletePost(post) {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.post(`${BASE}/posts/${post._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${myToken}`,
+      },
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
   }
 }
