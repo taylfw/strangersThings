@@ -10,3 +10,4 @@ export { default as SinglePostPage } from "./SinglePostPage";
 export { default as SearchBar } from "./SearchBar";
 export { default as ProfilePage } from "./ProfilePage";
 export { default as DeleteButton } from "./DeleteButton";
+export { default as Messages } from "./Messages";

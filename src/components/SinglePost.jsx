@@ -1,5 +1,7 @@
 import React from "react";
 import { DeleteButton } from ".";
+import { message } from "../api";
+import { Messages } from ".";
 
 const SinglePost = ({ post, currentUser }) => {
   return (
@@ -9,7 +11,9 @@ const SinglePost = ({ post, currentUser }) => {
       <h3 className="price">{post.price}</h3>
       {post.author.username === currentUser.username ? (
         <DeleteButton post={post} />
-      ) : null}
+      ) : (
+        <Messages />
+      )}
     </div>
   );
 };

@@ -85,7 +85,7 @@ export async function createPost(title, description, price, user, token) {
 export async function deletePost(post) {
   const myToken = getToken();
   try {
-    const { data } = await axios.post(`${BASE}/posts/${post._id}`, {
+    const { data } = await axios.delete(`${BASE}/posts/${post._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -93,6 +93,30 @@ export async function deletePost(post) {
       },
     });
     return data;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    location.reload();
+  }
+}
+
+export async function message(id, content) {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.post(
+      `${BASE}/posts/${id}/messages`,
+      {
+        message: {
+          content,
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${myToken}`,
+        },
+      }
+    );
   } catch (err) {
     console.log(err);
   }

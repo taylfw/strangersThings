@@ -10,6 +10,7 @@ const ProfilePage = ({
   allPosts,
   filterPosts,
 }) => {
+  console.log(currentUser);
   return (
     <div>
       <h1 className="hello">Welcome, {currentUser.username}!</h1>

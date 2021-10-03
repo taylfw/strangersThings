@@ -25,6 +25,8 @@ const Login = ({ setIsloggedIn }) => {
             console.log(await getCurrentUser());
           } catch (err) {
             console.error(err);
+          } finally {
+            location.reload();
           }
         }}
       >

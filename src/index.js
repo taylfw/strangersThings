@@ -85,9 +85,9 @@ const App = () => {
             />
           </Route>
 
-          <Route path="/posts/:postId">
+          {/* <Route path="/posts/:postId">
             <SinglePostPage allPosts={allPosts} />
-          </Route>
+          </Route> */}
 
           <Route path="/posts">
             <div>
