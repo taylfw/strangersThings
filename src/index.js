@@ -96,7 +96,12 @@ const App = () => {
                 setSearchTerm={setSearchTerm}
               />
               <div>
-                <Posts allPosts={allPosts} filterPosts={filterPosts} />
+                <Posts
+                  allPosts={allPosts}
+                  filterPosts={filterPosts}
+                  currentUser={currentUser}
+                />
+
                 <NewPostForm />
               </div>
             </div>

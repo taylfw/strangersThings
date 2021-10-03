@@ -81,3 +81,19 @@ export async function createPost(title, description, price, user, token) {
     throw error;
   }
 }
+
+export async function deletePost(post) {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.post(`${BASE}/posts/${post._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${myToken}`,
+      },
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
