@@ -4,6 +4,10 @@ import { message } from "../api";
 import { Messages } from ".";
 
 const SinglePost = ({ post, currentUser }) => {
+  const messageArr = post.messages;
+  const id = post._id;
+
+  console.log(currentUser);
   return (
     <div className="card">
       <h3 className="title"> Title: "{post.title}"</h3>{" "}
@@ -12,8 +16,14 @@ const SinglePost = ({ post, currentUser }) => {
       {post.author.username === currentUser.username ? (
         <DeleteButton post={post} />
       ) : (
-        <Messages />
+        <Messages messageArr={messageArr} id={id} />
       )}
+      {post.author.username === currentUser.username ? (
+        <p>hello</p>
+      ) : // messageArr.map((comment) => {
+      //     <p>{comment}</p>;
+      //   })
+      null}
     </div>
   );
 };
