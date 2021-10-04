@@ -9,7 +9,7 @@ const DeleteButton = ({ post }) => {
         event.preventDefault();
         try {
           await deletePost(post);
-          console.log("clicked");
+          
         } catch (err) {
           console.log(err);
         }
