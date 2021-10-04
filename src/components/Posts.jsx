@@ -10,7 +10,7 @@ const Posts = ({ allPosts, filterPosts }) => {
         ? filterPosts.map((post) => {
             return (
               <Link to={`/posts/${post._id}`} key={post._id}>
-                <SinglePost post={post} />;
+                <SinglePost post={post} />
               </Link>
             );
           })
@@ -18,7 +18,7 @@ const Posts = ({ allPosts, filterPosts }) => {
         ? allPosts.map((post) => {
             return (
               <Link to={`/posts/${post._id}`} key={post._id}>
-                <SinglePost post={post} />;
+                <SinglePost post={post} />
               </Link>
             );
           })

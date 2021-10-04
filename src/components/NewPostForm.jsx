@@ -71,9 +71,9 @@ const NewPostForm = (props) => {
             }}
           />
         </fieldset>
-        <button type="submit">Submit</button>
+        <button className ='btn' type="submit">Submit</button>
       </form>
-       <button><a href="#">Back to top</a></button>
+       <button className ='btn'><a href="#">Back to top</a></button>
     </div>
   );
 };

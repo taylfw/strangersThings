@@ -49,7 +49,7 @@ const Register = ({ setIsloggedIn }) => {
             }}
           />
         </fieldset>
-        <button>Register</button>
+        <button>Register If You Dare </button>
       </form>
     </div>
   );

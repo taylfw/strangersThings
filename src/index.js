@@ -15,12 +15,13 @@ import {
   Register,
   NavBar,
   NewPostForm,
-  Title,
+  HeaderTitle,
   SinglePostPage,
   SearchBar,
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
+
 
 const App = () => {
   //I was meaning to change these variables for less confusion (also reflected on line 23 through 25 👇️ )
@@ -53,7 +54,7 @@ const App = () => {
     <div id="App">
       <Router>
         <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
-        <Title />
+        <HeaderTitle/>
 
         <Switch>
           <Route path="/register">

@@ -15,10 +15,10 @@ label {
 }
 
 /* This id controls the boxes and the titleImage inside box */
-#title {
+#headertitle {
   align-items: center;
-  padding: 8%;
-  margin: 10%;
+  padding: 5%;
+  margin: 1%;
   background-image: url("./images/text-1632756381081.png");
   background-size: 100%;
   justify-content: center;
