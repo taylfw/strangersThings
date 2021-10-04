@@ -10,7 +10,11 @@ const Posts = ({ allPosts, filterPosts, currentUser }) => {
         ? filterPosts.map((post) => {
             return (
               <Link to={`/posts/${post._id}`} key={post._id}>
+
+                <SinglePost post={post} />
+
                 <SinglePost post={post} currentUser={currentUser} />;
+
               </Link>
             );
           })
@@ -18,7 +22,11 @@ const Posts = ({ allPosts, filterPosts, currentUser }) => {
         ? allPosts.map((post) => {
             return (
               <Link to={`/posts/${post._id}`} key={post._id}>
+
+                <SinglePost post={post} />
+
                 <SinglePost post={post} currentUser={currentUser} />;
+
               </Link>
             );
           })

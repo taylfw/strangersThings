@@ -1,7 +1,7 @@
 .card {
   display: flex;
   color: rgb(216, 17, 17);
-  font-family: "ITC Benguiat W01";
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   border-radius: 25px;
   border: 2px solid rgb(216, 17, 17);
   padding: 4px;
@@ -24,7 +24,7 @@ button {
 }
 
 /* Before button been click */
-.btn:hover {
+.button:hover {
   background-color: rgb(255, 0, 0);
   color: black;
   border: 3px solid rgb(255, 0, 0);
