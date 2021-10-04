@@ -3,14 +3,18 @@ import { SinglePost } from ".";
 import "./Posts.css";
 import { Link } from "react-router-dom";
 
-const Posts = ({ allPosts, filterPosts }) => {
+const Posts = ({ allPosts, filterPosts, currentUser }) => {
   return (
     <div>
       {filterPosts && filterPosts.length
         ? filterPosts.map((post) => {
             return (
               <Link to={`/posts/${post._id}`} key={post._id}>
+
                 <SinglePost post={post} />
+
+                <SinglePost post={post} currentUser={currentUser} />;
+
               </Link>
             );
           })
@@ -18,7 +22,11 @@ const Posts = ({ allPosts, filterPosts }) => {
         ? allPosts.map((post) => {
             return (
               <Link to={`/posts/${post._id}`} key={post._id}>
+
                 <SinglePost post={post} />
+
+                <SinglePost post={post} currentUser={currentUser} />;
+
               </Link>
             );
           })

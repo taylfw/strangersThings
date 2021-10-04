@@ -4,14 +4,13 @@ import "./NewPostForm.css";
 import { createPost } from "../api";
 import { getToken, getUser } from "../auth";
 
-const NewPostForm = (props) => {
+const NewPostForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
 
   return (
-    <div 
-    className="new-post-component-main-container">
+    <div className="new-post-component-main-container">
       <h1 className="hello">Welcome to making a post.</h1>
       <form
         id="newPostSubmit"
@@ -33,7 +32,7 @@ const NewPostForm = (props) => {
             console.log(err);
           }
         }}
-      >       
+      >
         <h2 className="hello">Create Post Below.</h2>
         <fieldset className="auth-component-input">
           <label htmlFor="title">Title:</label>
@@ -73,7 +72,12 @@ const NewPostForm = (props) => {
         </fieldset>
         <button className ='btn' type="submit">Submit</button>
       </form>
+
        <button className ='btn'><a href="#">Back to top</a></button>
+      <button>
+        <a href="#">Back to top</a>
+      </button>
+
     </div>
   );
 };

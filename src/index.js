@@ -7,7 +7,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import { getPosts } from "./api";
+import { getPosts, getCurrentUser } from "./api";
 import {
   Header,
   Posts,
@@ -18,6 +18,7 @@ import {
   HeaderTitle,
   SinglePostPage,
   SearchBar,
+  ProfilePage,
 } from "./components";
 import axios from "axios";
 import { getToken } from "./auth";
@@ -29,10 +30,20 @@ const App = () => {
   const [isLoggedIn, setIsloggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPosts, setFilterPosts] = useState([]);
+  const [currentUser, SetCurrentUser] = useState({});
 
   useEffect(async () => {
+    const myToken = getToken();
     const data = await getPosts();
+    if (myToken) {
+      setIsloggedIn(true);
+    }
     setAllPosts(data.data.posts);
+  }, []);
+
+  useEffect(async () => {
+    const data = await getCurrentUser();
+    SetCurrentUser(data.data);
   }, []);
 
   useEffect(async () => {
@@ -54,19 +65,35 @@ const App = () => {
     <div id="App">
       <Router>
         <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
+
         <HeaderTitle/>
+
+
+        <Title />
+
 
         <Switch>
           <Route path="/register">
             <Register setIsloggedIn={setIsloggedIn} />
           </Route>
+
           <Route path="/login">
             <Login setIsloggedIn={setIsloggedIn} />
           </Route>
 
-          <Route path="/posts/:postId">
-            <SinglePostPage allPosts={allPosts} />
+          <Route path="/profile">
+            <ProfilePage
+              SetCurrentUser={SetCurrentUser}
+              currentUser={currentUser}
+              allPosts={allPosts}
+              filterPosts={filterPosts}
+            />
           </Route>
+
+          {/* <Route path="/posts/:postId">
+            <SinglePostPage allPosts={allPosts} />
+          </Route> */}
+
           <Route path="/posts">
             <div>
               <SearchBar
@@ -74,7 +101,12 @@ const App = () => {
                 setSearchTerm={setSearchTerm}
               />
               <div>
-                <Posts allPosts={allPosts} filterPosts={filterPosts} />
+                <Posts
+                  allPosts={allPosts}
+                  filterPosts={filterPosts}
+                  currentUser={currentUser}
+                />
+
                 <NewPostForm />
               </div>
             </div>

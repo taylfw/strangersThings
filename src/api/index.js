@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getToken } from "../auth";
 
 const BASE = "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT";
 
@@ -7,6 +8,7 @@ const BASE = "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT";
 export async function getPosts() {
   try {
     const { data } = await axios.get(`${BASE}/posts`);
+
     return data;
   } catch (error) {
     throw error;
@@ -41,6 +43,21 @@ export async function loginUser(username, password) {
   }
 }
 
+export async function getCurrentUser() {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.get(`${BASE}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${myToken}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function createPost(title, description, price, user, token) {
   try {
     const { data } = await axios.post(
@@ -62,5 +79,45 @@ export async function createPost(title, description, price, user, token) {
     return data;
   } catch (error) {
     throw error;
+  }
+}
+
+export async function deletePost(post) {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.delete(`${BASE}/posts/${post._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${myToken}`,
+      },
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    location.reload();
+  }
+}
+
+export async function message(id, content) {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.post(
+      `${BASE}/posts/${id}/messages`,
+      {
+        message: {
+          content,
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${myToken}`,
+        },
+      }
+    );
+  } catch (err) {
+    console.log(err);
   }
 }
