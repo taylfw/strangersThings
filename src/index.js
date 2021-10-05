@@ -23,7 +23,6 @@ import {
 import axios from "axios";
 import { getToken } from "./auth";
 
-
 const App = () => {
   //I was meaning to change these variables for less confusion (also reflected on line 23 through 25 👇️ )
   const [allPosts, setAllPosts] = useState([]);
@@ -66,11 +65,7 @@ const App = () => {
       <Router>
         <NavBar isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} />
 
-        <HeaderTitle/>
-
-
-        <Title />
-
+        <HeaderTitle />
 
         <Switch>
           <Route path="/register">
